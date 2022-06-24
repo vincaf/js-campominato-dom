@@ -14,10 +14,6 @@ let buttonStart = document.getElementById('button-start');
 // Variabile per recuperare il value del select della difficoltà nell'html
 const difficult = document.getElementById('framework');
 
-// Creazione di 16 numeri random in cui si trovano le bombe
-let randomList = generateUniqueRandomNumber(1, 100);
-console.log(randomList);
-
 // Evento al momento del click sul bottone "inizia"
 buttonStart.addEventListener('click', function(){
     
@@ -26,6 +22,11 @@ buttonStart.addEventListener('click', function(){
 
     // Ciclo per l'inserimento dei quadrati nella griglia con relativo numero crescente
     if(difficult.value == 0){
+
+    // Creazione di 16 numeri random in cui si trovano le bombe
+    let randomList = generateUniqueRandomNumber(1, 100);
+    console.log('Le bombe si trovano nelle caselle: ' + randomList);
+
         for (let i = 1; i <= 100; i++) {
             const newSquare = createNewSquare();
 
@@ -44,6 +45,11 @@ buttonStart.addEventListener('click', function(){
             gridContainer.append(newSquare);    
         }
     } else if (difficult.value == 1){
+
+    // Creazione di 16 numeri random in cui si trovano le bombe
+    let randomList = generateUniqueRandomNumber(1, 81);
+    console.log('Le bombe si trovano nelle caselle: ' + randomList);
+
         for (let i = 1; i <= 81; i++) {
             const newSquare = createNewSquare();
             newSquare.classList.add('medium');
@@ -53,11 +59,20 @@ buttonStart.addEventListener('click', function(){
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
                 newSquare.classList.toggle('active');
+                if (randomList.includes(i)){
+                    newSquare.classList.remove('active');
+                    newSquare.classList.add('bomb');
+                }
             })
 
             gridContainer.append(newSquare); 
         }
     } else if (difficult.value == 2){
+
+    // Creazione di 16 numeri random in cui si trovano le bombe
+    let randomList = generateUniqueRandomNumber(1, 49);
+    console.log('Le bombe si trovano nelle caselle: ' + randomList);
+
         for (let i = 1; i <= 49; i++) {
             const newSquare = createNewSquare();
             newSquare.classList.add('hard');
@@ -67,6 +82,10 @@ buttonStart.addEventListener('click', function(){
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
                 newSquare.classList.toggle('active');
+                if (randomList.includes(i)){
+                    newSquare.classList.remove('active');
+                    newSquare.classList.add('bomb');
+                }
             })
 
             gridContainer.append(newSquare); 
