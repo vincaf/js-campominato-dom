@@ -24,7 +24,10 @@ buttonStart.addEventListener('click', function(){
     if(difficult.value == 0){
         for (let i = 1; i <= 100; i++) {
             const newSquare = createNewSquare();
+
+            // ** Comando per far apparire i numeri in ordine crescente nella cella
             newSquare.innerHTML = i;
+
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
                 newSquare.classList.toggle('active');
@@ -57,7 +60,37 @@ buttonStart.addEventListener('click', function(){
             gridContainer.append(newSquare); 
         }            
     }
+
+    // | lista vuota: lista degli elementi già estratti
+    const currentBlackList = [];
+
+    for (let i = 0; i < 16; i++) {
+        const bomb = generateUniqueRandomNumber(currentBlackList, 0, 100);
+        //il contenuto del quadrato diventa il numero randomico
+        newSquare.innerHTML = newUniqueNum;
+        newSquare.classList.add('bomb');
+        gridContainer.append(newSquare); 
+    }
 });
+
+// funzione: prende blacklist, prende il valore minimo, il valore massimo inclusi
+function generateUniqueRandomNumber( blackList, min, max){
+    let newRandomNumber;
+    let isNumberValid = false;
+
+    // finché il numero trovato non è valido
+    while( isNumberValid === false){
+        // genera un nuovo numero randomico nell'intervallo min-max
+        newRandomNumber = Math.floor(Math.random() * (max + 1) - min) + min;
+
+        // se non è già presente in blacklist || ovvero che il numero è nuovo e valido
+        if ( !blackList.includes(newRandomNumber)) {
+            // usciamo dal ciclo
+            isNumberValid = true;
+        }
+    }
+    return newRandomNumber;
+}
 
 
 
