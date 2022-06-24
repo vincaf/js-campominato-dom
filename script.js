@@ -14,6 +14,8 @@ let buttonStart = document.getElementById('button-start');
 // Variabile per recuperare il value del select della difficoltà nell'html
 const difficult = document.getElementById('framework');
 
+let control = false;
+
 // Evento al momento del click sul bottone "inizia"
 buttonStart.addEventListener('click', function(){
     
@@ -29,19 +31,23 @@ buttonStart.addEventListener('click', function(){
 
         for (let i = 1; i <= 100; i++) {
             const newSquare = createNewSquare();
+            control = false;
 
             // ** Comando per far apparire i numeri in ordine crescente nella cella
-            // newSquare.innerHTML = i;
+            newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
-                newSquare.classList.toggle('active');
-                if (randomList.includes(i)){
-                    newSquare.classList.remove('active');
-                    newSquare.classList.add('bomb');
+                if(control === false){
+                    newSquare.classList.toggle('active');
+                    if (randomList.includes(i)){
+                        newSquare.classList.remove('active');
+                        newSquare.classList.add('bomb');
+                        control = true;
+                        alert('BOOM! HAI PERSO!');
+                    }
                 }
             })
-
             gridContainer.append(newSquare);    
         }
     } else if (difficult.value == 1){
@@ -52,9 +58,10 @@ buttonStart.addEventListener('click', function(){
 
         for (let i = 1; i <= 81; i++) {
             const newSquare = createNewSquare();
+            control = false;
             newSquare.classList.add('medium');
             
-            // newSquare.innerHTML = i;
+            newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
@@ -62,6 +69,8 @@ buttonStart.addEventListener('click', function(){
                 if (randomList.includes(i)){
                     newSquare.classList.remove('active');
                     newSquare.classList.add('bomb');
+                    control = true;
+                    alert('BOOM! HAI PERSO!');
                 }
             })
 
@@ -75,9 +84,10 @@ buttonStart.addEventListener('click', function(){
 
         for (let i = 1; i <= 49; i++) {
             const newSquare = createNewSquare();
+            control = false;
             newSquare.classList.add('hard');
             
-            // newSquare.innerHTML = i;
+            newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
@@ -85,6 +95,8 @@ buttonStart.addEventListener('click', function(){
                 if (randomList.includes(i)){
                     newSquare.classList.remove('active');
                     newSquare.classList.add('bomb');
+                    control = true;
+                    alert('BOOM! HAI PERSO!');
                 }
             })
 
@@ -94,7 +106,7 @@ buttonStart.addEventListener('click', function(){
 });
 
 
-// funzione: prende blacklist, prende il valore minimo, il valore massimo inclusi e restituisce numero randomico
+// funzione: prende blacklist, prende il valore minimo e il valore massimo inclusi: restituisce 16 numeri randomici
 function generateUniqueRandomNumber(min, max){
     let blackList = [];
     while ( blackList.length < 16 ){

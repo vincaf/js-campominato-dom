@@ -38,9 +38,8 @@ div.square{
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #011627;
+    color: #fff;
     font-size: 20px;
-    font-weight: bold;
 }
 
 .medium{
