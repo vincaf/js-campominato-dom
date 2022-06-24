@@ -31,7 +31,6 @@ buttonStart.addEventListener('click', function(){
 
         for (let i = 1; i <= 100; i++) {
             const newSquare = createNewSquare();
-            control = false;
 
             // ** Comando per far apparire i numeri in ordine crescente nella cella
             newSquare.innerHTML = i;
@@ -44,10 +43,11 @@ buttonStart.addEventListener('click', function(){
                         newSquare.classList.remove('active');
                         newSquare.classList.add('bomb');
                         control = true;
-                        alert('BOOM! HAI PERSO!');
+                        alert('BOOM! HAI PERSO! - Punti: ' + document.querySelectorAll(".active").length);
                     }
                 }
             })
+            
             gridContainer.append(newSquare);    
         }
     } else if (difficult.value == 1){
@@ -58,22 +58,23 @@ buttonStart.addEventListener('click', function(){
 
         for (let i = 1; i <= 81; i++) {
             const newSquare = createNewSquare();
-            control = false;
             newSquare.classList.add('medium');
             
             newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
-                newSquare.classList.toggle('active');
-                if (randomList.includes(i)){
-                    newSquare.classList.remove('active');
-                    newSquare.classList.add('bomb');
-                    control = true;
-                    alert('BOOM! HAI PERSO!');
+                if(control === false){
+                    newSquare.classList.toggle('active');
+                    if (randomList.includes(i)){
+                        newSquare.classList.remove('active');
+                        newSquare.classList.add('bomb');
+                        control = true;
+                        alert('BOOM! HAI PERSO! - Punti: ' + document.querySelectorAll(".active").length);
+                    }
                 }
             })
-
+            
             gridContainer.append(newSquare); 
         }
     } else if (difficult.value == 2){
@@ -84,19 +85,20 @@ buttonStart.addEventListener('click', function(){
 
         for (let i = 1; i <= 49; i++) {
             const newSquare = createNewSquare();
-            control = false;
             newSquare.classList.add('hard');
             
             newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
-                newSquare.classList.toggle('active');
-                if (randomList.includes(i)){
-                    newSquare.classList.remove('active');
-                    newSquare.classList.add('bomb');
-                    control = true;
-                    alert('BOOM! HAI PERSO!');
+                if(control === false){
+                    newSquare.classList.toggle('active');
+                    if (randomList.includes(i)){
+                        newSquare.classList.remove('active');
+                        newSquare.classList.add('bomb');
+                        control = true;
+                        alert('BOOM! HAI PERSO! - Punti: ' + document.querySelectorAll(".active").length);
+                    }
                 }
             })
 
