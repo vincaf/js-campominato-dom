@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Campo Minato</title>
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row row-cols-2 justify-content-between align-items-center p-1">
+                <div class="col-auto">
+                    <img class="" src="https://curiosando708090.altervista.org/wp-content/uploads/2016/12/campo_minato_gioco_1989.png" alt="campominatologo">
+                    <span class="fs-1 fw-bold align-middle">CAMPO MINATO</span>
+                </div>
+                <div class="col-auto">
+                    <span class="mx-2">
+                        <form>
+                            <label for="framework">Seleziona una difficoltà:</label>
+                                <select id="framework" class="mx-2 align-middle">
+                                    <option value="0">Facile</option>
+                                    <option value="1">Normale</option>
+                                    <option value="2">Difficile</option>
+                                </select>
+                                <span><button id="button-start" type="button" class="btn btn-primary">Inizia</button></span>
+                        </form>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="grid-container">
+            <!-- Spazio dove saranno inserite dinamicamente le celle -->
+        </div>
+    </main>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
