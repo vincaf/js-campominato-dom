@@ -30,11 +30,15 @@ buttonStart.addEventListener('click', function(){
             const newSquare = createNewSquare();
 
             // ** Comando per far apparire i numeri in ordine crescente nella cella
-            newSquare.innerHTML = i;
+            // newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
                 newSquare.classList.toggle('active');
+                if (randomList.includes(i)){
+                    newSquare.classList.remove('active');
+                    newSquare.classList.add('bomb');
+                }
             })
 
             gridContainer.append(newSquare);    
@@ -43,7 +47,9 @@ buttonStart.addEventListener('click', function(){
         for (let i = 1; i <= 81; i++) {
             const newSquare = createNewSquare();
             newSquare.classList.add('medium');
-            newSquare.innerHTML = i;
+            
+            // newSquare.innerHTML = i;
+
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
                 newSquare.classList.toggle('active');
@@ -55,7 +61,9 @@ buttonStart.addEventListener('click', function(){
         for (let i = 1; i <= 49; i++) {
             const newSquare = createNewSquare();
             newSquare.classList.add('hard');
-            newSquare.innerHTML = i;
+            
+            // newSquare.innerHTML = i;
+
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
                 newSquare.classList.toggle('active');
