@@ -21,6 +21,7 @@ buttonStart.addEventListener('click', function(){
     
     // Svuotamento della griglia
     document.getElementById('grid-container').innerHTML = '';
+    let control = false;
 
     // Ciclo per l'inserimento dei quadrati nella griglia con relativo numero crescente
     if(difficult.value == 0){
@@ -33,7 +34,7 @@ buttonStart.addEventListener('click', function(){
             const newSquare = createNewSquare();
 
             // ** Comando per far apparire i numeri in ordine crescente nella cella
-            newSquare.innerHTML = i;
+            // newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
@@ -60,7 +61,7 @@ buttonStart.addEventListener('click', function(){
             const newSquare = createNewSquare();
             newSquare.classList.add('medium');
             
-            newSquare.innerHTML = i;
+            // newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
@@ -87,7 +88,7 @@ buttonStart.addEventListener('click', function(){
             const newSquare = createNewSquare();
             newSquare.classList.add('hard');
             
-            newSquare.innerHTML = i;
+            // newSquare.innerHTML = i;
 
             // aggiunta classi al nuovo quadrato ad ogni click
             newSquare.addEventListener('click', function(){
