@@ -12,7 +12,11 @@ function createNewSquare(){
 let buttonStart = document.getElementById('button-start');
 
 // Variabile per recuperare il value del select della difficoltà nell'html
-const difficult = document.getElementById('framework')
+const difficult = document.getElementById('framework');
+
+// Creazione di 16 numeri random in cui si trovano le bombe
+let randomList = generateUniqueRandomNumber(1, 100);
+console.log(randomList);
 
 // Evento al momento del click sul bottone "inizia"
 buttonStart.addEventListener('click', function(){
@@ -63,26 +67,16 @@ buttonStart.addEventListener('click', function(){
 });
 
 
-let currentBlackList = [];
-let randomList = generateUniqueRandomNumber(currentBlackList, 1, 100);
-console.log(randomList);
-
 // funzione: prende blacklist, prende il valore minimo, il valore massimo inclusi e restituisce numero randomico
-function generateUniqueRandomNumber(blackList, min, max){
-        for (let i = 0; i < 16; i++) {
-        let randomNumber;
-
-        let isNumValid = false;
-        
-        while ( isNumValid === false){
-            randomNumber = Math.floor(Math.random() * ((max + 1) - min) + min);
-            if(blackList.includes(randomNumber) === false){
-                isNumValid = true;
-            }
-        }
-
+function generateUniqueRandomNumber(min, max){
+    let blackList = [];
+    while ( blackList.length < 16 ){
+        let randomNumber = Math.round(Math.random() * (max - min) + min);
+        if ( blackList.includes(randomNumber) === false ){
         blackList.push(randomNumber);
         }
+    }
+    return blackList;
 }
 
 
