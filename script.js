@@ -60,36 +60,29 @@ buttonStart.addEventListener('click', function(){
             gridContainer.append(newSquare); 
         }            
     }
-
-    // | lista vuota: lista degli elementi già estratti
-    const currentBlackList = [];
-
-    for (let i = 0; i < 16; i++) {
-        const bomb = generateUniqueRandomNumber(currentBlackList, 0, 100);
-        //il contenuto del quadrato diventa il numero randomico
-        newSquare.innerHTML = newUniqueNum;
-        newSquare.classList.add('bomb');
-        gridContainer.append(newSquare); 
-    }
 });
 
-// funzione: prende blacklist, prende il valore minimo, il valore massimo inclusi
-function generateUniqueRandomNumber( blackList, min, max){
-    let newRandomNumber;
-    let isNumberValid = false;
 
-    // finché il numero trovato non è valido
-    while( isNumberValid === false){
-        // genera un nuovo numero randomico nell'intervallo min-max
-        newRandomNumber = Math.floor(Math.random() * (max + 1) - min) + min;
+let currentBlackList = [];
+let randomList = generateUniqueRandomNumber(currentBlackList, 1, 100);
+console.log(randomList);
 
-        // se non è già presente in blacklist || ovvero che il numero è nuovo e valido
-        if ( !blackList.includes(newRandomNumber)) {
-            // usciamo dal ciclo
-            isNumberValid = true;
+// funzione: prende blacklist, prende il valore minimo, il valore massimo inclusi e restituisce numero randomico
+function generateUniqueRandomNumber(blackList, min, max){
+        for (let i = 0; i < 16; i++) {
+        let randomNumber;
+
+        let isNumValid = false;
+        
+        while ( isNumValid === false){
+            randomNumber = Math.floor(Math.random() * ((max + 1) - min) + min);
+            if(blackList.includes(randomNumber) === false){
+                isNumValid = true;
+            }
         }
-    }
-    return newRandomNumber;
+
+        blackList.push(randomNumber);
+        }
 }
 
 
