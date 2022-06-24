@@ -43,6 +43,7 @@ buttonStart.addEventListener('click', function(){
                     if (randomList.includes(i)){
                         newSquare.classList.remove('active');
                         newSquare.classList.add('bomb');
+                        newSquare.innerHTML = ' <i class="bi bi-emoji-dizzy"></i> ';
                         control = true;
                         alert('BOOM! HAI PERSO! - Punti: ' + document.querySelectorAll(".active").length);
                     }
@@ -70,6 +71,7 @@ buttonStart.addEventListener('click', function(){
                     if (randomList.includes(i)){
                         newSquare.classList.remove('active');
                         newSquare.classList.add('bomb');
+                        newSquare.innerHTML = ' <i class="bi bi-emoji-dizzy"></i> ';
                         control = true;
                         alert('BOOM! HAI PERSO! - Punti: ' + document.querySelectorAll(".active").length);
                     }
@@ -97,6 +99,7 @@ buttonStart.addEventListener('click', function(){
                     if (randomList.includes(i)){
                         newSquare.classList.remove('active');
                         newSquare.classList.add('bomb');
+                        newSquare.innerHTML = ' <i class="bi bi-emoji-dizzy"></i> ';
                         control = true;
                         alert('BOOM! HAI PERSO! - Punti: ' + document.querySelectorAll(".active").length);
                     }
